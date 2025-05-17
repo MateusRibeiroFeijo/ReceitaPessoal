@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar Receita</title>
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container my-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0">Cadastrar Nova Receita</h3>
+        <a href="index.html" class="btn btn-primary">Ver receitas</a>
+      </div>
+
+      <form id="form-receita">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome da Receita*</label>
+          <input type="text" class="form-control" id="nome" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="ingredientes" class="form-label">Ingredientes*</label>
+          <textarea
+            class="form-control"
+            id="ingredientes"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="tempo" class="form-label">Tempo de Preparo (min)*</label>
+          <input type="number" class="form-control" id="tempo" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="dificuldade" class="form-label">Dificuldade*</label>
+          <select class="form-select" id="dificuldade" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="Fácil">Fácil</option>
+            <option value="Média">Média</option>
+            <option value="Difícil">Difícil</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="categoria" class="form-label">Categoria*</label>
+          <input type="text" class="form-control" id="categoria" required />
+        </div>
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-success">Salvar Receita</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("form-receita")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const receita = {
+            nome: document.getElementById("nome").value,
+            ingredientes: document.getElementById("ingredientes").value,
+            tempo: document.getElementById("tempo").value,
+            dificuldade: document.getElementById("dificuldade").value,
+            categoria: document.getElementById("categoria").value,
+          };
+
+          fetch("http://localhost:3000/receitas", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(receita),
+          })
+            .then(function (response) {
+              if (!response.ok) throw new Error("Erro ao enviar dados.");
+              return response.json();
+            })
+            .then(function () {
+              alert("Receita cadastrada com sucesso!");
+              document.getElementById("form-receita").reset();
+            })
+            .catch(function (error) {
+              console.error("Erro:", error);
+              alert("Erro ao cadastrar receita.");
+            });
+        });
+    </script>
+  </body>
+</html>
