@@ -45,6 +45,16 @@
         </div>
 
         <div class="mb-3">
+          <label for="modoPreparo" class="form-label">Modo de Preparo*</label>
+          <textarea
+            class="form-control"
+            id="modoPreparo"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
           <label for="tempo" class="form-label">Tempo de Preparo (min)*</label>
           <input type="number" class="form-control" id="tempo" required />
         </div>
@@ -79,6 +89,7 @@
           const receita = {
             nome: document.getElementById("nome").value,
             ingredientes: document.getElementById("ingredientes").value,
+            modoPreparo: document.getElementById("modoPreparo").value,
             tempo: document.getElementById("tempo").value,
             dificuldade: document.getElementById("dificuldade").value,
             categoria: document.getElementById("categoria").value,

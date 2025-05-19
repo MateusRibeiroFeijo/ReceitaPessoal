@@ -1,26 +1,11 @@
 {
   "receitas": [
     {
-      "id": "54e9",
+      "id": "86d2",
       "nome": "Bolo de cenoura",
-      "ingredientes": "aaaa",
-      "tempo": "12",
-      "dificuldade": "Difícil",
-      "categoria": "Sobremesa"
-    },
-    {
-      "id": "3e5c",
-      "nome": "Tete",
-      "ingredientes": "aaaaa",
-      "tempo": "41",
-      "dificuldade": "Difícil",
-      "categoria": "teste categoria"
-    },
-    {
-      "id": "d437",
-      "nome": "teste receita",
-      "ingredientes": "aaaaaa",
-      "tempo": "13",
+      "ingredientes": "-ingredientes\n-aaa\n",
+      "modoPreparo": "teste modo de preparo",
+      "tempo": "50",
       "dificuldade": "Média",
       "categoria": "teste categoria"
     }

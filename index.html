@@ -70,17 +70,18 @@
 
             receitas.forEach((receita) => {
               const card = `
-                <div class="col-md-4 mb-4">
-                  <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title">${receita.nome}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">${receita.categoria}</h6>
-                      <p class="card-text">Tempo: ${receita.tempo} min • Dificuldade: ${receita.dificuldade}</p>
-                      <p class="card-text"><strong>Ingredientes:</strong> ${receita.ingredientes}</p>
-                    </div>
-                  </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">${receita.nome}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">${receita.categoria}</h6>
+                  <p class="card-text">Tempo: ${receita.tempo} min • Dificuldade: ${receita.dificuldade}</p>
+                  <p class="card-text"><strong>Ingredientes:</strong> ${receita.ingredientes}</p>
+                  <p class="card-text"><strong>Modo de preparo:</strong> ${receita.modoPreparo}</p>
                 </div>
-              `;
+              </div>
+            </div>
+          `;
               container.insertAdjacentHTML("beforeend", card);
             });
           })
