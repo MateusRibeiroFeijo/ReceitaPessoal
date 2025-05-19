@@ -1,0 +1,12 @@
+{
+  "receitas": [
+    {
+      "id": "da73",
+      "nome": "teste receita",
+      "ingredientes": "Teste ingredientes",
+      "tempo": "10",
+      "dificuldade": "Média",
+      "categoria": "teste categoria"
+    }
+  ]
+}
