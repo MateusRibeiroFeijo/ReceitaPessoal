@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listagem de Receitas</title>
-    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="index.html">Receitas Pessoais</a>
+
+        <!-- Botão de menu responsivo com acessibilidade-->
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-label="Abrir menu de navegação"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,13 +29,13 @@
               <a class="nav-link" href="index.html">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="receita-cadastro.html"
-                >Cadastrar Receita</a
+              <a class="nav-link" href="receita-listagem.html"
+                >Listar Receitas</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="receita-listagem.html"
-                >Listar Receitas</a
+              <a class="nav-link" href="receita-cadastro.html"
+                >Cadastrar Receita</a
               >
             </li>
           </ul>
@@ -50,61 +54,49 @@
         >
       </div>
 
-      <div id="lista-receitas" class="row"></div>
+      <div id="receitas" class="row"></div>
     </div>
 
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-1">&copy; 2025 Catálogo de Receitas Pessoais</p>
+        <p class="mb-0">Feito com ♥ por Mateus</p>
+      </div>
+    </footer>
+
     <script>
-      const container = document.getElementById("lista-receitas");
-
-      function carregarReceitas() {
-        fetch("http://localhost:3000/receitas")
-          .then((res) => res.json())
-          .then((receitas) => {
-            if (!receitas.length) {
-              container.innerHTML =
-                '<p class="text-muted">Nenhuma receita cadastrada.</p>';
-              return;
-            }
-
-            receitas.forEach((r) => {
-              const card = `
-              <div class="col-md-6 mb-3">
-                <div class="card">
-                  <div class="card-body">
-                    <h5>${r.nome}</h5>
-                    <small class="text-muted">${r.categoria}</small>
-                    <p><strong>Tempo:</strong> ${r.tempo} min</p>
-                    <p><strong>Dificuldade:</strong> ${r.dificuldade}</p>
-                    <p><strong>Ingredientes:</strong><br>${r.ingredientes}</p>
-                    <p><strong>Modo de Preparo:</strong><br>${r.modoPreparo}</p>
-                    <div class="d-flex gap-2">
-                      <a href="receita-cadastro.html?id=${r.id}" class="btn btn-sm btn-primary">Editar</a>
-                      <button class="btn btn-sm btn-danger" onclick="excluirReceita(${r.id})">Excluir</button>
-                    </div>
-                  </div>
-                </div>
-              </div>`;
-              container.insertAdjacentHTML("beforeend", card);
-            });
-          })
-          .catch(() => {
-            container.innerHTML =
-              '<p class="text-danger">Erro ao carregar receitas.</p>';
-          });
-      }
-
-      function excluirReceita(id) {
-        if (!confirm("Tem certeza que deseja excluir esta receita?")) return;
-        fetch(`http://localhost:3000/receitas/${id}`, { method: "DELETE" })
-          .then(() => {
-            alert("Receita excluída com sucesso!");
-            container.innerHTML = "";
-            carregarReceitas();
-          })
-          .catch(() => alert("Erro ao excluir receita."));
-      }
-
-      carregarReceitas();
+      fetch("http://localhost:3000/receitas")
+        .then((response) => response.json())
+        .then((receitas) => {
+          const lista = document.getElementById("receitas");
+          lista.innerHTML = receitas
+            .map(
+              (receita) => `
+        <div class="col-md-6 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5>${receita.nome}</h5>
+              <small class="text-muted">${receita.categoria}</small>
+              <p><strong>Tempo:</strong> ${receita.tempo} min</p>
+              <p><strong>Dificuldade:</strong> ${receita.dificuldade}</p>
+              <p><strong>Ingredientes:</strong><br>${receita.ingredientes}</p>
+              <p><strong>Modo de Preparo:</strong><br>${receita.modoPreparo}</p>
+              <div class="d-flex gap-2">
+                <a href="receita-cadastro.html?id=${receita.id}" class="btn btn-sm btn-primary">Editar</a>
+                <button class="btn btn-sm btn-danger" onclick="excluirReceita(${receita.id})">Excluir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+            )
+            .join("");
+        })
+        .catch((error) => {
+          console.error("Erro:", error);
+          lista.innerHTML =
+            '<p class="text-danger">Erro ao carregar receitas.</p>';
+        });
     </script>
   </body>
 </html>

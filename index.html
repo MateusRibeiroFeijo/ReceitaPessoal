@@ -4,65 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catálogo de Receitas</title>
-    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Tela.CSS" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Receitas Pessoais</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <!--MENU DE NAVEGAÇÃO-->
+    <header>
+      <nav id="nav">
+        <img
+          id="logo"
+          src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
+          alt="imagem logo"
+          class="img-fluid logo"
+        />
+        <button id="menu-toggle">&#9776;</button>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-inline-item" href="#">Página Inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-inline-item" href="receita-listagem.html">Listagem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-inline-item" href="receita-cadastro.html">Cadastro</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!--/////////////////-->
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="receita-cadastro.html"
-                >Cadastrar Receita</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="receita-listagem.html"
-                >Listar Receitas</a
-              >
-            </li>
-          </ul>
+    <!--DESCRIÇÃO EMPRESA-->
+    <main>
+      <section class="container">
+        <div class="row">
+          <!--offset-sm-1: Quebra da coluna 1 para enquadramento-->
+          <div class="col-md-5" id="mensagemInicial">
+            <h3>
+              <strong>COZINHAR NUNCA FOI TÃO FÁCIL E ACESSIVEL</strong>
+            </h3>
+            <p>
+              O Catálogo de Receitas é um projeto que visa facilitar o
+              armazenamento e a consulta de receitas culinárias. Com uma
+              interface amigável e intuitiva, os usuários podem cadastrar suas
+              receitas favoritas, organizá-las e compartilhar com amigos e
+              familiares.
+            </p>
+            <p>
+              Que tal preparar um prato delicioso e surpreender a todos? Aqui
+              você encontra receitas para todas as ocasiões, desde pratos
+              simples do dia a dia até receitas mais elaboradas para ocasiões
+              especiais. Não perca tempo, comece a explorar o nosso catálogo e
+              descubra novas receitas para experimentar na sua cozinha!
+            </p>
+            <button type="button" class="btn btn-primary">Saiba mais</button>
+          </div>
+          <div class="col-md-5">
+            <img
+              id="ImagemHotel"
+              src="https://previews.123rf.com/images/hryshchyshen/hryshchyshen2407/hryshchyshen240705263/234188202-portrait-of-young-beautiful-female-chef-in-restaurant-kitchen.jpg"
+              alt="imagem Mulher Cozinheira"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--/////////////////-->
+
+    <!--Rodapé da página-->
+    <footer>
+      <div class="footer-container">
+        <!-- Logo à esquerda -->
+        <div class="footer-logo">
+          <img
+            src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
+            alt="Logo da Empresa"
+          />
+        </div>
+
+        <!-- Informações de contato à direita -->
+        <div class="footer-info">
+          <p><strong>Contato:</strong> (99) 99999-9999</p>
+          <p><strong>Email:</strong> contato@empresa.com</p>
         </div>
       </div>
-    </nav>
+    </footer>
 
-    <!-- Container de Receitas -->
-    <div class="container my-5">
-      <!-- Mensagem de boas-vindas -->
-      <div class="card bg-light mb-4 shadow-sm">
-        <div class="card-body text-center">
-          <h2 class="card-title mb-2">
-            Bem-vindo ao CRP: Catálogo de Receitas Pessoais!
-          </h2>
-          <p class="card-text fs-5">
-            Cozinhar nunca foi tão fácil e organizado.
-          </p>
-        </div>
-      </div>
-
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Minhas Receitas</h2>
-        <a href="receita-cadastro.html" class="btn btn-primary"
-          >+ Nova Receita</a
-        >
-      </div>
-
-      <div class="row" id="lista-receitas"></div>
-    </div>
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".nav").classList.toggle("active");
+        });
+    </script>
 
     <!-- Bootstrap JS -->
     <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -86,19 +120,28 @@
             }
 
             receitas.forEach((receita) => {
-              const card = `
-            <div class="col-md-4 mb-4">
-              <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title">${receita.nome}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">${receita.categoria}</h6>
-                  <p class="card-text">Tempo: ${receita.tempo} min • Dificuldade: ${receita.dificuldade}</p>
-                  <p class="card-text"><strong>Ingredientes:</strong> ${receita.ingredientes}</p>
-                  <p class="card-text"><strong>Modo de preparo:</strong> ${receita.modoPreparo}</p>
+              const card = (
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                      <h5 class="card-title">${receita.nome}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        ${receita.categoria}
+                      </h6>
+                      <p class="card-text">
+                        Tempo: ${receita.tempo} min • Dificuldade: $
+                        {receita.dificuldade}
+                      </p>
+                      <p class="card-text">
+                        <strong>Ingredientes:</strong> ${receita.ingredientes}
+                      </p>
+                      <p class="card-text">
+                        <strong>Modo de preparo:</strong> ${receita.modoPreparo}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          `;
+              );
               container.insertAdjacentHTML("beforeend", card);
             });
           })

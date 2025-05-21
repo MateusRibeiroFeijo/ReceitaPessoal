@@ -1,0 +1,225 @@
+/* Estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*background-color: rgb(112, 112, 243);*/
+  background-color: #6a8592;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+}
+
+/* Estilos para o menu de navegação */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+#logo {
+  height: 50px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+li {
+  padding: 5px;
+}
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsividade para o menu de navegação*/
+@media screen and (max-width: 600px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+}
+
+/* Estilos para a descrição da empresa */
+.container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.col-md-5 {
+  flex: 1;
+  min-width: 300px;
+  margin: 10px;
+}
+
+#ImagemHotel {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 60px;
+}
+
+#mensagemInicial h3 {
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-md-5 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Estilos específicos para "Por que nossos hoteis?"*/
+
+.destaque {
+  float: left;
+  max-height: 125px;
+  max-width: 100%;
+  border-radius: 30px;
+}
+
+#quartos {
+  border: 2px solid #000000; /* borda preta */
+  border-radius: 10px; /* cantos arredondados */
+}
+
+#linha-titulo-NossosHoteis h3 {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  #linha-destaques {
+    flex-direction: column;
+  }
+
+  .destaque {
+    float: none;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  .col-sm-5 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+/* Estilos para NOSSOS QUARTOS */
+#quartos {
+  border: 2px solid #000000; /* borda preta */
+  border-radius: 10px; /* cantos arredondados */
+  padding: 20px;
+}
+
+#linha-quartos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+#linha-quartos img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+@media screen and (max-width: 768px) {
+  #linha-quartos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Estilos para a seção de reserva */
+@media screen and (max-width: 768px) {
+  #linha-quartos {
+    flex-direction: column;
+    align-items: center;
+  }
+  #reserva .row {
+    flex-direction: column;
+  }
+  #reserva .col-md-6 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+#reserva {
+  border: 2px solid rgb(0, 0, 0); /* borda preta */
+  border-radius: 10px; /* cantos arredondados */
+}
+
+#reserva p {
+  text-align: justify;
+}
+
+/*Configurações de apresentação de rodapé*/
+footer {
+  background-color: #222;
+  color: white;
+  padding: 20px 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo img {
+  width: 200px; /* Ajuste conforme o tamanho da logo */
+}
+
+.footer-info {
+  text-align: right;
+}
+
+.footer-info p {
+  margin: 5px 0;
+}

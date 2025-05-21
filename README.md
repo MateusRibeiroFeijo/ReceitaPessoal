@@ -19,6 +19,7 @@ Em desenvolvimento
 - Banco de Dados: MySQL
 
 ## Time de Desenvolvedores:
+
 Desenvolvimento individual (apenas um desenvolvedor)
 
 ## Funcionalidades do Sistema (Requisitos):

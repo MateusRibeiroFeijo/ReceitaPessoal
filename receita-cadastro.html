@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Receita</title>
-    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="TelaListagem.CSS" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="index.html">Receitas Pessoais</a>
+
+        <!-- Botão de menu responsivo com acessibilidade -->
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-label="Abrir menu de navegação"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,13 +29,13 @@
               <a class="nav-link" href="index.html">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="receita-cadastro.html"
-                >Cadastrar Receita</a
+              <a class="nav-link" href="receita-listagem.html"
+                >Listar Receitas</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="receita-listagem.html"
-                >Listar Receitas</a
+              <a class="nav-link" href="receita-cadastro.html"
+                >Cadastrar Receita</a
               >
             </li>
           </ul>
@@ -96,6 +100,13 @@
         </div>
       </form>
     </div>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-1">&copy; 2025 Catálogo de Receitas Pessoais</p>
+        <p class="mb-0">Feito com ♥ por Mateus</p>
+      </div>
+    </footer>
 
     <script>
       document
