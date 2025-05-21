@@ -41,7 +41,13 @@
       <form id="form-receita">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome da Receita*</label>
-          <input type="text" class="form-control" id="nome" required />
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            required
+            maxlength="100"
+          />
         </div>
 
         <div class="mb-3">
@@ -51,6 +57,7 @@
             id="ingredientes"
             rows="3"
             required
+            maxlength="1000"
           ></textarea>
         </div>
 
@@ -61,12 +68,19 @@
             id="modoPreparo"
             rows="4"
             required
+            maxlength="1000"
           ></textarea>
         </div>
 
         <div class="mb-3">
           <label for="tempo" class="form-label">Tempo de Preparo (min)*</label>
-          <input type="number" class="form-control" id="tempo" required />
+          <input
+            type="number"
+            class="form-control"
+            id="tempo"
+            required
+            pattern="{1,15}$"
+          />
         </div>
 
         <div class="mb-3">
@@ -81,7 +95,13 @@
 
         <div class="mb-3">
           <label for="categoria" class="form-label">Categoria*</label>
-          <input type="text" class="form-control" id="categoria" required />
+          <input
+            type="text"
+            class="form-control"
+            id="categoria"
+            required
+            placeholder="Almoço, janta, café da manhã, sobremesa..."
+          />
         </div>
 
         <div class="mb-3">
