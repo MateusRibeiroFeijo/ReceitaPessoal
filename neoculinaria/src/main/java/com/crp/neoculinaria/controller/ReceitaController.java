@@ -32,7 +32,8 @@ public class ReceitaController {
     }
     
     @GetMapping("/lista")
-    public String lista(){
+    public String lista(Model model){
+        model.addAttribute("receitas", receitaService.listarTodos());
         return "receita-listagem";
     }
 }
