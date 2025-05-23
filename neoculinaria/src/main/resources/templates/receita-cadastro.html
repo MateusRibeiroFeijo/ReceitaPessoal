@@ -31,19 +31,22 @@
         </ul>
       </nav>
     </header>
-
+    <!-- FIM DO MENU -->
+    
+    
     <div class="container my-5">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Cadastrar Nova Receita</h3>
         <a href="index.html" class="btn btn-primary">Ver receitas</a>
       </div>
 
-        <form id="form-receita" method="post">
+        <form method="post" th:action="@{/gravar}">
             
         <div class="mb-3">
           <label for="id" class="form-label">Id</label>
           <input
             type="hidden"
+            th:field="${receita.id}"
           />
         </div>
         
@@ -51,6 +54,7 @@
           <label for="nome" class="form-label">Nome da Receita*</label>
           <input
             type="text"
+            th:field="${receita.nome}"
             class="form-control"
             id="nome"
             required
@@ -60,30 +64,33 @@
 
         <div class="mb-3">
           <label for="ingredientes" class="form-label">Ingredientes*</label>
-          <textarea
+          <input
+            th:field="${receita.ingredientes}"
             class="form-control"
             id="ingredientes"
             rows="3"
             required
             maxlength="1000"
-          ></textarea>
+          ></input>
         </div>
 
         <div class="mb-3">
           <label for="modoPreparo" class="form-label">Modo de Preparo*</label>
-          <textarea
+          <input
+            th:field="${receita.preparo}"
             class="form-control"
             id="modoPreparo"
             rows="4"
             required
             maxlength="1000"
-          ></textarea>
+          ></input>
         </div>
 
         <div class="mb-3">
           <label for="tempo" class="form-label">Tempo de Preparo (min)*</label>
           <input
             type="number"
+            th:field="${receita.tempo}"
             class="form-control"
             id="tempo"
             required
@@ -93,7 +100,7 @@
 
         <div class="mb-3">
           <label for="dificuldade" class="form-label">Dificuldade*</label>
-          <select class="form-select" id="dificuldade" required>
+          <select class="form-select" id="dificuldade" required th:field="${receita.dificuldade}">
             <option value="" disabled selected>Selecione</option>
             <option value="Fácil">Fácil</option>
             <option value="Média">Média</option>
@@ -105,6 +112,7 @@
           <label for="categoria" class="form-label">Categoria*</label>
           <input
             type="text"
+            th:field="${receita.categoria}"
             class="form-control"
             id="categoria"
             required
@@ -130,42 +138,6 @@
         .getElementById("menu-toggle")
         .addEventListener("click", function () {
           document.querySelector(".nav").classList.toggle("active");
-        });
-    </script>
-    <script>
-      document
-        .getElementById("form-receita")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const receita = {
-            nome: document.getElementById("nome").value,
-            ingredientes: document.getElementById("ingredientes").value,
-            modoPreparo: document.getElementById("modoPreparo").value,
-            tempo: document.getElementById("tempo").value,
-            dificuldade: document.getElementById("dificuldade").value,
-            categoria: document.getElementById("categoria").value,
-          };
-
-          fetch("http://localhost:3000/receitas", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(receita),
-          })
-            .then(function (response) {
-              if (!response.ok) throw new Error("Erro ao enviar dados.");
-              return response.json();
-            })
-            .then(function () {
-              alert("Receita cadastrada com sucesso!");
-              document.getElementById("form-receita").reset();
-            })
-            .catch(function (error) {
-              console.error("Erro:", error);
-              alert("Erro ao cadastrar receita.");
-            });
         });
     </script>
   </body>
