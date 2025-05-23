@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastrar Receita</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="TelaListagem.CSS" />
+    <!--<link rel="stylesheet" href="TelaCadastro.CSS" />-->
+    <link rel="stylesheet" href="TelaCadastro.css" th:href="@{TelaCadastro.css}">
   </head>
   <body>
     <!--MENU DE NAVEGAÇÃO-->
@@ -40,7 +41,7 @@
         <a href="index.html" class="btn btn-primary">Ver receitas</a>
       </div>
 
-        <form method="post" th:action="@{/gravar}">
+        <form method="post" th:action="@{/receita/gravar}">
             
         <div class="mb-3">
           <label for="id" class="form-label">Id</label>
