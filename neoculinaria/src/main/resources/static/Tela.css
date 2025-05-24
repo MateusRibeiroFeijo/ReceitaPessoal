@@ -197,7 +197,7 @@ article {
   text-align: justify;
 }
 
-/*Configurações de apresentação de rodapé*/
+/* Configurações de apresentação de rodapé */
 footer {
   background-color: #222;
   color: white;
@@ -206,21 +206,27 @@ footer {
 
 .footer-container {
   display: flex;
+  flex-wrap: wrap; /* Permite quebra em telas menores */
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto; /* Adicionado 0 antes do auto por clareza */
 }
 
 .footer-logo img {
-  width: 200px; /* Ajuste conforme o tamanho da logo */
+  width: 200px;
+  max-width: 100%; /* Evita estouro em telas pequenas */
+  height: auto;
 }
 
 .footer-info {
   text-align: right;
+  flex: 1; /* Garante espaço equilibrado com a logo */
+  min-width: 250px; /* Evita colapso em telas pequenas */
 }
 
 .footer-info p {
   margin: 5px 0;
 }
+
 

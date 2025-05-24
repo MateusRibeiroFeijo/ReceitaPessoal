@@ -46,7 +46,17 @@ public class ReceitaController {
     
     @GetMapping("/alterar/{id}")
     public String alterar(@PathVariable int id, Model model){
+        //testar dps pra ver se vai pegar o CSS
+        //model.addAttribute("css");
         model.addAttribute("receita", receitaService.buscarPorId(id));
         return "receita-cadastro";
+    }
+    
+    @GetMapping("/detalhes/{id}")
+    public String exibirDetalhes(@PathVariable int id, Model model){
+        Receita receita = receitaService.buscarPorId(id);
+        
+        model.addAttribute("receita", receita);
+        return "detalhes";
     }
 }
