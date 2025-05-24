@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catálogo de Receitas</title>
-    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <!--<link rel="stylesheet" href="Tela.CSS" />-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="Tela.css" th:href="@{Tela.css}">
   </head>
   <body>
@@ -17,6 +17,7 @@
           src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
           alt="imagem logo"
           class="img-fluid logo"
+          style="height: 50px"
         />
         <button id="menu-toggle">&#9776;</button>
         <ul class="nav">
@@ -100,60 +101,7 @@
     </script>
 
     <!-- Bootstrap JS -->
-    <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
-    <!-- Script para carregar receitas -->
-    <script>
-      function carregarReceitas() {
-        fetch("http://localhost:3000/receitas")
-          .then((response) => {
-            if (!response.ok) throw new Error("Erro ao buscar receitas");
-            return response.json();
-          })
-          .then((receitas) => {
-            const container = document.getElementById("lista-receitas");
-            container.innerHTML = "";
-
-            if (receitas.length === 0) {
-              container.innerHTML =
-                '<p class="text-muted">Nenhuma receita cadastrada até o momento.</p>';
-              return;
-            }
-
-            receitas.forEach((receita) => {
-              const card = (
-                <div class="col-md-4 mb-4">
-                  <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                      <h5 class="card-title">${receita.nome}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">
-                        ${receita.categoria}
-                      </h6>
-                      <p class="card-text">
-                        Tempo: ${receita.tempo} min • Dificuldade: $
-                        {receita.dificuldade}
-                      </p>
-                      <p class="card-text">
-                        <strong>Ingredientes:</strong> ${receita.ingredientes}
-                      </p>
-                      <p class="card-text">
-                        <strong>Modo de preparo:</strong> ${receita.modoPreparo}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-              container.insertAdjacentHTML("beforeend", card);
-            });
-          })
-          .catch((error) => {
-            console.error("Erro ao carregar receitas:", error);
-            document.getElementById("lista-receitas").innerHTML =
-              "<p class='text-danger'>Erro ao carregar receitas.</p>";
-          });
-      }
-
-      carregarReceitas();
-    </script>
   </body>
 </html>
