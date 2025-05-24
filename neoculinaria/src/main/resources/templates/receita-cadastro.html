@@ -9,32 +9,41 @@
     <link rel="stylesheet" href="TelaCadastro.css" th:href="@{TelaCadastro.css}">
   </head>
   <body>
-    <!--MENU DE NAVEGAÇÃO-->
+      <!-- MENU DE NAVEGAÇÃO -->
     <header>
-      <nav id="nav">
-        <img
-          id="logo"
-          src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
-          alt="imagem logo"
-          class="img-fluid logo"
-          style="height: 50px"
-        />
-        <button id="menu-toggle">&#9776;</button>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-inline-item" href="/">Página Inicial</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-inline-item" href="/lista">Receitas cadastradas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-inline-item" href="/cadastro">Cadastrar nova Receita</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <!-- FIM DO MENU -->
-    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="/">
+      <img
+        src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
+        alt="logo"
+        height="40"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/">Página Inicial</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/lista">Receitas Cadastradas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/cadastro">Cadastrar Nova Receita</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+    <!--FIM DO MENU-->
     
     <div class="container my-5">
       <div class="d-flex justify-content-between align-items-center mb-4">

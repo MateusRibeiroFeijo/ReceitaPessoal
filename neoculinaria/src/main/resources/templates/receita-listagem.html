@@ -8,31 +8,41 @@
     <link rel="stylesheet" href="TelaListagem.css" th:href="@{TelaListagem.css}">
   </head>
   <body>
-    <!--MENU DE NAVEGAÇÃO-->
-    <header>
-      <nav id="nav">
-        <img
-          id="logo"
-          src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
-          alt="imagem logo"
-          class="img-fluid logo"
-          style="height: 50px"
-        />
-        <button id="menu-toggle">&#9776;</button>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-inline-item" href="/">Página Inicial</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-inline-item" href="/lista">Receitas cadastradas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-inline-item" href="/cadastro">Cadastrar nova Receita</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+      <!--MENU DE NAVEGAÇÃO-->
+      <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="/">
+      <img
+        src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
+        alt="logo"
+        height="40"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/">Página Inicial</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/lista">Receitas Cadastradas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/cadastro">Cadastrar Nova Receita</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+    <!--FIM DO MENU-->
     <div class="container mt-4">
   <table class="table table-bordered table-striped table-hover">
     <thead class="table-dark text-center">

@@ -47,7 +47,7 @@ public class ReceitaController {
     @GetMapping("/alterar/{id}")
     public String alterar(@PathVariable int id, Model model){
         //testar dps pra ver se vai pegar o CSS
-        //model.addAttribute("css");
+        model.addAttribute("Tela.css");
         model.addAttribute("receita", receitaService.buscarPorId(id));
         return "receita-cadastro";
     }
