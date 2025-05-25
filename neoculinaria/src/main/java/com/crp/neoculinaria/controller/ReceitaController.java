@@ -5,6 +5,7 @@ import com.crp.neoculinaria.service.ReceitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,13 +16,9 @@ public class ReceitaController {
     @Autowired
     private ReceitaService receitaService;
     
-    @GetMapping("/")
-    public String inicio(){
-        return "index";
-    }
-    
     @GetMapping("/cadastro")
-    public String exibirFormulario(Model model){
+    public String exibirFormulario(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
+        model.addAttribute("css", tema);
         model.addAttribute("receita", new Receita());
         return "receita-cadastro";
     }
@@ -33,7 +30,8 @@ public class ReceitaController {
     }
     
     @GetMapping("/lista")
-    public String lista(Model model){
+    public String lista(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
+        model.addAttribute("css", tema);
         model.addAttribute("receitas", receitaService.listarTodos());
         return "receita-listagem";
     }
@@ -45,17 +43,16 @@ public class ReceitaController {
     }
     
     @GetMapping("/alterar/{id}")
-    public String alterar(@PathVariable int id, Model model){
-        //testar dps pra ver se vai pegar o CSS
-        model.addAttribute("Tela.css");
+    public String alterar(@PathVariable int id, @CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
+        model.addAttribute("css", tema);
         model.addAttribute("receita", receitaService.buscarPorId(id));
         return "receita-cadastro";
     }
     
     @GetMapping("/detalhes/{id}")
-    public String exibirDetalhes(@PathVariable int id, Model model){
+    public String exibirDetalhes(@PathVariable int id, @CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
         Receita receita = receitaService.buscarPorId(id);
-        
+        model.addAttribute("css", tema);
         model.addAttribute("receita", receita);
         return "detalhes";
     }
