@@ -1,0 +1,55 @@
+/* Estilos para o menu de navegação */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+#logo {
+  height: 50px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+li {
+  padding: 5px;
+}
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsividade para o menu de navegação*/
+@media screen and (max-width: 600px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+}
+

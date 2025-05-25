@@ -8,17 +8,20 @@
     
     <link rel="stylesheet" href="Tela.css" th:href="@{Tela.css}">
   </head>
-  <body>
+  <body style="background-color: #6a8592">
     <!--MENU DE NAVEGAÇÃO-->
       <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand d-flex align-items-center" href="/">
       <img
         src="https://previews.123rf.com/images/stockgiu/stockgiu2304/stockgiu230401098/202846093-chef-hat-symbolizes-gourmet-cooking-industry.jpg"
         alt="logo"
         height="40"
+        class="me-2"
       />
+      <span class="text-white fw-semibold">CRP - Catálogo de Receitas Pessoais</span>
     </a>
+
     <button
       class="navbar-toggler"
       type="button"
@@ -56,19 +59,19 @@
             </h3>
             <p>
               O Catálogo de Receitas é um projeto que visa facilitar o
-              armazenamento e a consulta de receitas culinárias. Com uma
-              interface amigável e intuitiva, os usuários podem cadastrar suas
+              armazenamento e a consulta de receitas culinárias. 
+              Com uma interface amigável e intuitiva, os usuários podem cadastrar suas
               receitas favoritas, organizá-las e compartilhar com amigos e
               familiares.
             </p>
             <p>
-              Que tal preparar um prato delicioso e surpreender a todos? Aqui
+                <strong>Que tal preparar um prato delicioso e surpreender a todos?</strong> Aqui
               você encontra receitas para todas as ocasiões, desde pratos
               simples do dia a dia até receitas mais elaboradas para ocasiões
               especiais. Não perca tempo, comece a explorar o nosso catálogo e
               descubra novas receitas para experimentar na sua cozinha!
             </p>
-            <button type="button" class="btn btn-primary">Saiba mais</button>
+            <a href="/lista" class="btn btn-primary">Começe com a sua receita favorita!</a>
           </div>
           <div class="col-md-5">
             <img
